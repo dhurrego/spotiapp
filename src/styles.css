@@ -13,9 +13,11 @@ hr {
     cursor: pointer;
 }
 
+
 .img-circle {
     border-radius: 100%;
     width: 150px;
+    height: 150px;
 }
 
 .card-title,

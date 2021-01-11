@@ -1,10 +1,15 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 animated fadeIn">
-  <div *ngFor="let item of items" class="col">
+  <div (click)="verArtista(item)" *ngFor="let item of items" class="col puntero">
     <div class="card h-100">
       <img [src]="item.images | noimage" class="card-img-top" [alt]="item.name">
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
-        <p class="card-text d-inline" *ngFor="let artista of item.artists"><span  class="badge rounded-pill bg-primary">{{ artista.name }}</span></p>
+        <div *ngIf="item.type == 'album'">
+        	<p class="card-text d-inline" *ngFor="let artista of item.artists"><span  class="badge rounded-pill bg-primary">{{ artista.name }}</span></p>
+        </div>
+        <div *ngIf="item.type == 'artist'">
+        	<p class="card-text d-inline" *ngFor="let generos of item.genres"><span  class="badge rounded-pill bg-primary">{{ generos }}</span></p>	
+        </div>
       </div>
     </div>
   </div>
